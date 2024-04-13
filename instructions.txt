@@ -1,0 +1,33 @@
+NOTES:
+
+Using replit:
+	Run:at the moment, clicking run runs server.js to change this, go to 'package.json', go to 'scripts', and change	value of 'run' to 'node {newfile}.js'
+
+	git: use 'git pull' in shell to update, and 'git add <file>' -> 'git commit -m 'message'' -> 'git push' to send code to github repo
+
+Using fetch requests:
+	to get posts from mongoDB, must use fetch requests
+	these are promises, which basically run some code upon successful completion or failure of fetch request (look up if confused)
+	use the url given by replit when you click run (should be url in webview tab)
+	**In order for code to understand you want mongo db, you have to include "MongoReq":"true" in "headers":{} part of fetch request (see example below)
+	
+	//uses fetch to send GET request to specified url, including header MongoReq
+	fetch(url, {"headers":{"MongoReq":"true"}})
+	//if request is successful, call response.text(), which resolves with body of response
+	//body of response is 'data' of the response
+	.then(response => response.text())
+	//if response.text() is successful (it is also a promise), run the following
+	.then(text => {
+		//set an element to display text
+		p.innerText = text;
+		//display text in console
+		console.log(text);
+	})
+	//if any of these promises rejects/raises an error, run the following
+	.catch(reject =>{
+		//these two do same thing, but show that it wasn't found
+		p.innerText = "Not found";
+		console.log("not found")
+	});
+
+  type index.html after / in url thing

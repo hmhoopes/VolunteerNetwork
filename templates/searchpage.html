@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Volunteer Posts</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top-bar">
+        <div class="logo">
+          Volunteer <span style="color: #ffd700">NET</span>
+        </div>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search for volunteer opportunities..."
+          id="searchInput"
+        />
+        <button onclick="searchPosts()">Search</button>
+      </div>
+    </header>
+    <main>
+      <!-- Theme One -->
+      <div class="post-slider theme-one">
+        <h2 class="theme-title">Recommended Opportunities</h2>
+        <button class="slide-arrow left-arrow">←</button>
+        <div class="post-wrapper">
+          <div class="post">Theme 1 Post 1</div>
+          <div class="post">Theme 1 Post 2</div>
+          <div class="post">Theme 1 Post 3</div>
+        </div>
+        <button class="slide-arrow right-arrow">→</button>
+      </div>
+
+      <!-- Theme Two -->
+      <div class="post-slider theme-two">
+        <h2 class="theme-title">Hot posts</h2>
+        <button class="slide-arrow left-arrow">←</button>
+        <div class="post-wrapper">
+          <div class="post">Theme 2 Post 1</div>
+          <div class="post">Theme 2 Post 2</div>
+          <div class="post">Theme 2 Post 3</div>
+        </div>
+        <button class="slide-arrow right-arrow">→</button>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const leftArrows = document.querySelectorAll(".left-arrow");
+        const rightArrows = document.querySelectorAll(".right-arrow");
+
+        leftArrows.forEach((arrow) => {
+          arrow.addEventListener("click", function () {
+            const wrapper = this.nextElementSibling;
+            wrapper.scrollLeft -= 300;
+          });
+        });
+
+        rightArrows.forEach((arrow) => {
+          arrow.addEventListener("click", function () {
+            const wrapper = this.previousElementSibling;
+            wrapper.scrollLeft += 300;
+          });
+        });
+      });
+    </script>
+    <!--
+    <script>
+        function searchPosts() {
+            var searchTerm = document.getElementById('searchInput').value;
+            console.log('Searching for:', searchTerm);
+            
+            fetch(`/search?query=${encodeURIComponent(searchTerm)}`)
+                .then(response => response.json())
+
+    </script> -->
+  </body>
+</html>

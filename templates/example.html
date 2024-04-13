@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- At the moment, this is just for testing -->
+<html>
+	<head>
+		<title>Volunteer Network</title>
+	</head>
+	<body>
+		<h1>Volunteer Network</h1>
+		<h4>Displaying object info: </h4>
+		<p id="test"></p>
+
+		<script>
+			url = "https://ead9b11d-2d56-49fd-bd72-3cdf3fa214ec-00-3cp2firpd156p.kirk.replit.dev/"
+			p = document.getElementById("test");
+			fetch(url, {"headers":{"MongoReq":"true"}})
+			//if request is successful, call response.text()
+			.then(response => response.text())
+			.then(text => {
+				p.innerText = text;
+				console.log(text);
+			})
+			//if any of these promises rejects, run the following
+			.catch(reject =>{
+					p.innerText = "not found";
+			});
+	
+		</script>
+	</body>
+</html>

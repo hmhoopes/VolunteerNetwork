@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1 class="logo">Volunteer Network</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search for volunteer opportunities..." id="searchInput">
+            <button onclick="searchPosts()">Search</button>
+        </div>
+    </header>
+    <main>
+        <div class="profile-container">
+            <h1>User Profile</h1>
+            <div class="profile-info" id="profileInfo">
+                <!-- User details will be filled here dynamically -->
+            </div>
+        </div>
+    </main>
+    <script>
+        // Fetch user profile data from the server
+        fetch('/profile')
+            .then(response => response.json())
+            .then(data => {
+                const profileInfo = document.getElementById('profileInfo');
+                profileInfo.innerHTML = `
+                    <img src="${data.profilePicture}" alt="Profile Picture" class="profile-picture">
+                    <div class="user-details">
+                        <p>Name: ${data.name}</p>
+                        <p>Pronouns: ${data.pronouns}</p>
+                        <p>Interests:</p>
+                        <ul>
+                            ${data.interests.map(interest => `<li>${interest}</li>`).join('')}
+                        </ul>
+                        <p>Qualifications:</p>
+                        <ul>
+                            ${data.qualifications.map(qualification => `<li>${qualification}</li>`).join('')}
+                        </ul>
+                        <p>Home Location: ${data.homeLocation}</p>
+                        <p>Email: ${data.email}</p>
+                        <p>Phone Number: ${data.phone}</p>
+                        <p>User ID: ${data.userId}</p>
+                        <p>Rating: ${data.rating} stars</p>
+                    </div>
+                `;
+            })
+            .catch(error => console.error('Error fetching profile data:', error));
+
+        function searchPosts() {
+            var searchTerm = document.getElementById('searchInput').value;
+            console.log('Searching for:', searchTerm);
+            // Redirect to searchpage.html with the search term as a query parameter
+            window.location.href = `/searchpage.html?search=${encodeURIComponent(searchTerm)}`;
+        }
+    </script>
+</body>
+</html>

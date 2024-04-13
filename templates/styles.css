@@ -1,0 +1,148 @@
+/*this is copied straight from chatgpt so change later*/
+body, h1, button, input {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column; /* Align items in a column */
+  align-items: left; /* left items horizontally */
+}
+
+.logo { /* make logo more artistic maybe like Volunteer NET to diff colors or something*/
+  margin-bottom: 5px; /* Add some space between the logo and the search bar */
+  font-size: 24px; /* Adjust size as needed */
+  color: #FFFFFF; /* Choose a color that stands out on your background */
+}
+
+.search-container {
+  display: flex;
+  justify-content: left; /* Align search elements to the left */
+  align-items: left;
+  width: 100%; /* Allow the search bar to take the full width */
+}
+
+.search-container input {
+  padding: 10px;
+  width: 300px; /* Set a fixed width for the input */
+  margin-right: 10px; /* Space between the input and button */
+}
+
+.search-container button {
+  padding: 10px 20px;
+  background-color: #388E3C;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+.profile-pic img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.posts-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+/* styling for horizontal scrolling post bar from chatgpt - change as needed*/
+
+.post-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Hide the overflow */
+}
+
+.post-wrapper {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.post {
+    flex: 0 0 auto; /* Do not grow or shrink, but can be basis auto */
+    width: 300px; /* Fixed width for each post */
+    height: 300px;
+    margin: 10px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    padding: 10px 20px;
+}
+
+/* Theme-specific styles - idk if gonna add this
+.theme-one .post {
+    background-color: #f4f4f4;
+}
+
+.theme-two .post {
+    background-color: #e8e8e8;
+}
+
+ Add more themes as necessary */
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+/*stuff for new index*/
+.sign-in-container {
+  display: flex;
+  align-items: right;
+}
+
+.sign-in-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+main1 {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.welcome h1 {
+  margin-bottom: 20px;
+  font-style: 40px;
+}
+
+.start-searching {
+  padding: 10px 20px;
+  background-color: #388E3C;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.info {
+  margin-top: 40px;
+}
